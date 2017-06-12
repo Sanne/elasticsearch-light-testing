@@ -19,8 +19,11 @@ The official image is based on CentOS, which is great an reliable to run service
 
 I highly recommend using tmpfs for storage as Docker is otherwise not very efficient:
 
+> docker run --ulimit memlock=-1:-1 -ti --tmpfs /run --tmpfs=/opt/elasticsearch/volatile/data:uid=1000 --tmpfs --tmpfs=/opt/elasticsearch/volatile/logs:uid=1000 -p 9200:9200 -p 9300:9300 --name es-it sanne/elasticsearch-light-testing
+
+Get rid of it after testing:
+
 > docker stop es-it && docker rm es-it
-> docker run -ti --tmpfs /run --tmpfs=/opt/elasticsearch/volatile/data:uid=1000 --tmpfs --tmpfs=/opt/elasticsearch/volatile/logs:uid=1000 -p 9200:9200 -p 9300:9300 --name es-it sanne/elasticsearch-light-testing
 
 Registered on DockerHub: https://hub.docker.com/r/sanne/elasticsearch-light-testing/ 
 
@@ -30,6 +33,6 @@ Build it locally:
 
 Don't forget to change `customtest` consistently in the run script:
 
-> docker run -ti --tmpfs /run --tmpfs=/opt/elasticsearch/volatile/data:uid=1000 --tmpfs --tmpfs=/opt/elasticsearch/volatile/logs:uid=1000 -p 9200:9200 -p 9300:9300 --name es-it customtest
+> docker run --ulimit memlock=-1:-1 -ti --tmpfs /run --tmpfs=/opt/elasticsearch/volatile/data:uid=1000 --tmpfs --tmpfs=/opt/elasticsearch/volatile/logs:uid=1000 -p 9200:9200 -p 9300:9300 --name es-it customtest
 
 
