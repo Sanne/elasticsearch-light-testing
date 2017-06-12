@@ -61,3 +61,11 @@ discovery.type: single-node
 # Require explicit names when deleting indices:
 #
 action.destructive_requires_name: true
+
+# Store data in a volatile drive (recommend tmpfs)
+
+path:
+    data: /opt/elasticsearch/volatile/data
+    logs: /opt/elasticsearch/volatile/logs
+
+
