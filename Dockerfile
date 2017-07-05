@@ -5,9 +5,14 @@ ENV ES_VERSION=5.4.2
 
 USER root
 
+# Update system and install JDK
 RUN \
+	dnf update -y && \
 	dnf install -y java-1.8.0-openjdk-headless && \
-	dnf clean all && \
+	dnf clean all
+
+# Download and install Elasticsearch
+RUN \
 	mkdir -p /opt/elasticsearch && \
 	cd /opt/elasticsearch && \
 	curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$ES_VERSION.tar.gz && \
