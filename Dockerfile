@@ -1,7 +1,7 @@
 FROM fedora:25
 LABEL maintainer "Sanne Grinovero <sanne.grinovero@gmail.com>"
 
-ENV ES_VERSION=5.4.2
+ENV ES_VERSION=5.5.0
 
 USER root
 
