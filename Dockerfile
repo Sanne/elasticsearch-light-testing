@@ -1,4 +1,4 @@
-FROM fedora:27
+FROM registry.fedoraproject.org/fedora-minimal:27
 LABEL maintainer "Sanne Grinovero <sanne.grinovero@gmail.com>"
 
 ENV ES_VERSION=5.6.5
@@ -7,9 +7,9 @@ USER root
 
 # Update system and install JDK
 RUN \
-	dnf update -y && \
-	dnf install -y java-1.8.0-openjdk-headless && \
-	dnf clean all
+	microdnf update -y && \
+	microdnf install -y java-1.8.0-openjdk-headless tar && \
+	microdnf clean all
 
 # Download and install Elasticsearch
 RUN \
