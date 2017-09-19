@@ -62,6 +62,9 @@ discovery.type: single-node
 #
 action.destructive_requires_name: true
 
+# This feature is deprecated: don't allow to make sure our code is future-proof
+elasticsearch.json.allow_unquoted_field_names: false
+
 # Store data in a volatile drive (recommend tmpfs)
 
 path:
