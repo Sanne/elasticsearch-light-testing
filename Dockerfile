@@ -16,7 +16,7 @@ RUN \
 	mkdir -p /opt/elasticsearch && \
 	cd /opt/elasticsearch && \
 	curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$ES_VERSION.tar.gz && \
-	tar zxvf elasticsearch-${ES_VERSION}.tar.gz -C /opt/elasticsearch --strip-components=1 && \
+	tar zxf elasticsearch-${ES_VERSION}.tar.gz -C /opt/elasticsearch --strip-components=1 && \
 	rm /opt/elasticsearch/bin/*.bat /opt/elasticsearch/bin/*.exe \
 	rm -Rf /opt/elasticsearch/modules/lang-mustache /opt/elasticsearch/modules/lang-groovy /opt/elasticsearch/modules/lang-expression /opt/elasticsearch/modules/transport-netty3 \
 	rm -f elasticsearch-${ES_VERSION}.tar.gz && \
