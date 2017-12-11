@@ -8,7 +8,7 @@ USER root
 # Update system and install JDK
 RUN \
 	dnf update -y && \
-	dnf install -y java-1.8.0-openjdk-headless && \
+	dnf install -y java-9-openjdk-headless && \
 	dnf clean all
 
 # Download and install Elasticsearch
@@ -28,7 +28,7 @@ COPY log4j2.properties /opt/elasticsearch/config/
 COPY elasticsearch.yml /opt/elasticsearch/config/
 COPY jvm.options /opt/elasticsearch/config/
 
-ENV JAVA_HOME /usr/lib/jvm/jre-1.8.0-openjdk
+ENV JAVA_HOME /usr/lib/jvm/java-9-openjdk
 
 USER elasticsearch
 
