@@ -5,12 +5,6 @@ ENV ES_VERSION=5.6.5
 
 USER root
 
-# Update system and install JDK
-RUN \
-	dnf update -y && \
-	dnf install -y java-9-openjdk-headless && \
-	dnf clean all
-
 # Download and install Elasticsearch
 RUN \
 	mkdir -p /opt/elasticsearch && \
@@ -27,6 +21,13 @@ RUN \
 COPY log4j2.properties /opt/elasticsearch/config/
 COPY elasticsearch.yml /opt/elasticsearch/config/
 COPY jvm.options /opt/elasticsearch/config/
+
+# Update system and install JDK
+# (After Elasticsearch download so to enable better cache reuse)
+RUN \
+	dnf update -y && \
+	dnf install -y java-9-openjdk-headless && \
+	dnf clean all
 
 ENV JAVA_HOME /usr/lib/jvm/java-9-openjdk
 
