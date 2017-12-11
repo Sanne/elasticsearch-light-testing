@@ -17,7 +17,19 @@ The official image is based on CentOS, which is great an reliable to run service
 
 ## How to run it
 
+### Fetch it
+
+> docker pull sanne/elasticsearch-light-testing
+
+### Start it
+
 > docker run --ulimit memlock=-1:-1 -it --net=host --rm=true --memory-swappiness=0 --name es-it sanne/elasticsearch-light-testing
+
+Done!
+
+Keep in mind that this image is meant for development in quick iterations; the above options will terminate the container on CTRL+C and remove any data stored.
+
+### Customization & tuning
 
 I highly recommend using tmpfs for storage as Docker is otherwise not very efficient; direct host network usage also helps with efficiency:
 
