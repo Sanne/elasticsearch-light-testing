@@ -1,0 +1,43 @@
+# Typically *NIX text editors, by default, append '~' to files on saving to make backups
+*~
+
+# Some editors, such as DIA, use this extension for automatic saves
+*.autosave
+
+#Checkstyle
+.checkstyle
+
+# Build output directories
+target
+bin
+
+# IntelliJ specific files/directories
+/out
+.idea
+*.ipr
+*.iws
+*.iml
+atlassian-ide-plugin.xml
+
+# Eclipse specific files/directories
+.classpath
+.project
+.settings
+.externalToolBuilders
+.factorypath
+
+# NetBeans specific files/directories
+.nbattrs
+
+# Sublime
+*.sublime-*
+
+# Miscellaneous
+*.log
+*.sh
+.clover
+.DS_Store
+
+# Maven wrapper files
+.mvn
+mvnw*
