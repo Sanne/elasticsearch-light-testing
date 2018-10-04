@@ -26,7 +26,8 @@ RUN \
 
 COPY log4j2.properties /opt/elasticsearch/config/
 COPY elasticsearch.yml /opt/elasticsearch/config/
-COPY jvm.options /opt/elasticsearch/config/
+COPY jvm.options-override /opt/elasticsearch/config/
+RUN cd /opt/elasticsearch/config/ && cat jvm.options-override >> jvm.options && rm jvm.options-override
 
 ENV JAVA_HOME /usr/lib/jvm/jre-1.8.0-openjdk
 

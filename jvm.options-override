@@ -1,0 +1,8 @@
+## The content of this file will be appended to Elasticsearch's built-in jvm.options file,
+## effectively overriding built-in options.
+
+-Xms500M
+-Xmx500M
+
+# disable calls to System#gc
+-XX:+DisableExplicitGC
