@@ -32,10 +32,10 @@
 ##
 ################################################################
 
-## GC configuration
--XX:+UseConcMarkSweepGC
--XX:CMSInitiatingOccupancyFraction=75
--XX:+UseCMSInitiatingOccupancyOnly
+## GC configuration: disabled to sto allow self-tuning for small heap
+#-XX:+UseConcMarkSweepGC
+#-XX:CMSInitiatingOccupancyFraction=75
+#-XX:+UseCMSInitiatingOccupancyOnly
 
 ## optimizations
 
@@ -48,7 +48,7 @@
 ## basic
 
 # force the server VM (remove on 32-bit client JVMs)
--server
+#-server
 
 # explicitly set the stack size (reduce to 320k on 32-bit client JVMs)
 -Xss1m
@@ -109,6 +109,6 @@
 # If documents were already indexed with unquoted fields in a previous version
 # of Elasticsearch, some operations may throw errors.
 #
-# WARNING: This option will be removed in Elasticsearch 6.0.0 and is provided
-# only for migration purposes.
--Delasticsearch.json.allow_unquoted_field_names=false
+
+# This will be enforced in future versions, prepare for it:
+-Des.scripting.exception_for_missing_value=true
