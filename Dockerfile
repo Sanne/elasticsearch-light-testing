@@ -1,5 +1,5 @@
-FROM fedora:28
-LABEL maintainer "Sanne Grinovero <sanne.grinovero@gmail.com>"
+FROM fedora:29
+LABEL maintainer "Sanne Grinovero <sanne@redhat.com>"
 
 ENV ES_VERSION=6.4.2
 
